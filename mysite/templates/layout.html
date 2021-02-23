@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="keywords" content="инвестиции, деньги, бизнес, тест">
+    <meta name="description" content="Портал с ресурсами для обучения инвестированию и проверки своих знаний с помощью теста.">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/css/style.css'%}">
+    <link>{% block links%}{% endblock%}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+</head>
+<body>
+    <header>
+        <div class="topLineWords">
+            <p class="logo">WiseInvestor</p>
+            <p class="name"><a href="{% url 'allauth:logout' %}">{{request.user}}</a></p>
+        </div>
+        <div class="iconSignOut"><i class="fas fa-door-open signOut"></i></div>
+
+    </header>
+    <nav>
+        <a href="{% url 'posts:blog' %}">Блог</a>
+        <a href="{% url 'polls:test' %}">Тест</a>
+        <!--'sources' Источники-->
+    </nav>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p>Illustration by <a href="undefined">Natasha Remarchuk</a> from <a href="https://icons8.com/">Icons8</a></p>
+    </footer>
+</body>
+</html>

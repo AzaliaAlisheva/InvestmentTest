@@ -1,0 +1,26 @@
+main{
+    margin: 2%;
+}
+
+ul{
+    list-style: disc;
+}
+
+li{
+    margin: 0;
+}
+
+.question .form-control{
+    width: 45%;
+    height: 150px;
+    vertical-align: top;
+    margin-left: 10px;
+}
+
+.question .btn{
+    margin: 10px;
+}
+
+.about{
+    width: 50%;
+}

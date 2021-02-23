@@ -1,0 +1,53 @@
+.form-control{
+    background: #E5E5E5;
+    color: #878787;
+    border-width: 0;
+    margin: 0 1% 1px 4%;
+    height: 35px;
+    border-radius: 5px;
+    width: 40%;
+}
+input:valid{
+    background: white;
+    border: 2px solid #878787;
+    color: black;
+}
+textarea:valid{
+    background: white;
+    border: 2px solid #878787;
+    color: black;
+}
+#cat{
+ height: 120px;
+    width: 120px;
+}
+#myonoffswitch{
+    height: 20px;
+    width: 20px;
+    display: inline;
+    margin-top: 0;
+}
+#description_of_req{
+    width: 50%;
+    float: right;
+    margin-right: 4%;
+    margin-left: 1%;
+    height: 206px;
+    resize: none;
+}
+#intro{
+    font-size: 24px;
+    margin-left: 4%;
+    margin-bottom: 10px;
+}
+#anon{
+    display: inline;
+    position: relative;
+    font-size: 15px;
+    top: -5px;
+}
+#send{
+    margin-top: 10px;
+    margin-left: 4%;
+    margin-bottom: 20px;
+}

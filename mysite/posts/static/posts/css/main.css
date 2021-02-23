@@ -1,0 +1,161 @@
+body{
+    padding: 0;
+    font-family: "Arial", sans-serif;
+    font-size: 14px;
+}
+
+.card{
+    background: #DEF3FF;
+    margin: 2%;
+}
+.card span{
+    font-size: 16px;
+    float: right;
+    font-weight: bold;
+    position: relative;
+    top: 7px;
+}
+.card .btn{
+    position: relative;
+    left: -12px;
+}
+#edit{
+    float: right;
+}
+
+header{
+    background: #DEF3FF;
+    height: 40px;
+    line-height: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header: after {
+    vertical-align: middle;
+    text-align: right;
+}
+
+.topLineWords {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.logo {
+    margin-left: 40px;
+    font-size: 18px;
+}
+
+.name {
+    margin-right: 5px;
+}
+
+.iconSignOut {
+    font-size: 20px;
+    padding-right: 10px;
+    justify-content: flex-end;
+    flex-grow: 0;
+}
+
+nav button{
+    display: inline-block;
+    margin: 0 5px;
+    background: #E5E5E5;
+    border-radius: 5px;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    line-height: 14px;
+    border-width: 0;
+}
+
+nav button:hover{
+    opacity: $btn-disabled-opacity;
+}
+
+nav {
+    text-align: center;
+    margin: 20px;
+}
+
+footer {
+    height: 300px;
+    background: #C4C4C4;
+}
+
+.search {
+    background: #E5E5E5;
+    color: #878787;
+    border-width: 0;
+    margin-left: 40px;
+    height: 35px;
+    border-radius: 5px;
+}
+
+.btn {
+    color: black;
+    background: #FFCC48;
+    border-width: 0;
+    margin-left: 12px;
+    height: 35px;
+    border-radius: 5px;
+    margin-top: 0;
+}
+
+.searchLine .form-control{
+    display: inline-block;
+    width: 40%;
+}
+
+footer {
+    display: flex;
+    padding: 5%;
+    justify-content: space-between;
+}
+
+.column {
+    width: 20%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+footer ul{
+    display: block;
+    list-style: none;
+    padding-inline-start: 0;
+}
+
+footer li{
+    display: list-item;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+footer li a{
+    color: black;
+}
+
+.active_star{
+    position: relative;
+    top: -10px;
+    color: #ffd800;
+    padding: 0;
+    font-size: 35px;
+}
+.inactive_star{
+    position: relative;
+    top: -10px;
+    color: #C4C4C4;
+    padding: 0;
+    font-size: 35px;
+}
+
+.rating_1{
+    display: inline-block;
+    width: 30%;
+}
+.rating_2{
+    display: inline-block;
+    width: 30%;
+}

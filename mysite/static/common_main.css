@@ -1,0 +1,52 @@
+body{
+    padding: 0;
+    font-family: "Arial", sans-serif;
+    font-size: 14px;
+}
+
+a{
+    color: var(--WHITE);
+}
+
+header{
+    color: var(--WHITE);
+    font-weight: bold;
+    background-color: var(--BLUE);
+    height: 40px;
+    line-height: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header: after {
+    vertical-align: middle;
+    text-align: right;
+}
+
+.topLineWords {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.logo {
+    margin-left: 40px;
+    font-size: 18px;
+}
+
+.name {
+    margin-right: 5px;
+}
+
+.iconSignOut {
+
+    font-size: 20px;
+    padding-right: 10px;
+    justify-content: flex-end;
+    flex-grow: 0;
+}
+
+footer {
+    height: 300px;
+    background: #C4C4C4;
+}

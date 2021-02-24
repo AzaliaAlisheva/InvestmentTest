@@ -9,7 +9,8 @@
     <meta name="description" content="Портал с ресурсами для обучения инвестированию и проверки своих знаний с помощью теста.">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'polls/css/style.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'common_main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'colors.css' %}">
     <link>{% block links%}{% endblock%}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 </head>
@@ -17,16 +18,15 @@
     <header>
         <div class="topLineWords">
             <p class="logo">WiseInvestor</p>
+            <nav>
+                <a href="{% url 'posts:blog' %}">Блог</a>
+                <a href="{% url 'polls:test' %}">Тест</a>
+                <!--'sources' Источники-->
+            </nav>
             <p class="name"><a href="{% url 'allauth:logout' %}">{{request.user}}</a></p>
         </div>
         <div class="iconSignOut"><i class="fas fa-door-open signOut"></i></div>
-
     </header>
-    <nav>
-        <a href="{% url 'posts:blog' %}">Блог</a>
-        <a href="{% url 'polls:test' %}">Тест</a>
-        <!--'sources' Источники-->
-    </nav>
     <main>
         {% block content %}
         {% endblock %}

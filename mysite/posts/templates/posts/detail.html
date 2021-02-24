@@ -1,13 +1,13 @@
 {% extends 'layout.html' %}
 {% load static %}
-{% block links%}<link rel="stylesheet" type="text/css" href="{% static 'main/css/css_for_txt.css'%}"> {% endblock%}
-{% block title%}{{ request.title }}{% endblock %}
+{% block links%}<link rel="stylesheet" type="text/css" href="{% static 'posts/css/css_for_txt.css'%}"> {% endblock%}
+{% block title%}{{ posts.title }}{% endblock %}
 {% block content%}
 <div class="card">
       <div class="card-body">
             <article>
-                  <h3 class="card-title">{{ .title }}</h3>
-                  <pre class="card-text">{{request.content}}</pre>
+                  <h3 class="card-title">{{ posts.title }}</h3>
+                  <pre class="card-text">{{posts.content}}</pre>
             </article>
       </div>
 </div>

@@ -6,11 +6,11 @@
       <input class="form-control search" type="text" placeholder="Поиск" aria-label="Поиск">
 <button class="btn" type="submit">Найти</button>
 </form>
-{% for el in req%}
+{% for el in posts%}
 <div class="card">
       <div class="card-body">
             <h3 class="card-title">{{el.title}} <span>Дата публикации: {{el.created_at}}</span> </h3>
-            <p class="card-text">{{el.description}}</p>
+            <p class="card-text">{{el.content}}</p>
             <a href="{% url 'posts:request details' el.id %}" class="btn">Смотреть подробности</a>
             <a href="{% url 'posts:request update' el.id %}" class="btn" id="edit">Редактировать</a>
       </div>

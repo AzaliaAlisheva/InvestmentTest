@@ -1,9 +1,8 @@
 {% extends 'layout.html' %}
 {% load static %}
 {% block title%}Создать пост{% endblock %}
-{% block links%}<link rel="stylesheet" type="text/css" href="{% static 'main/css/new_req.css'%}"> {% endblock%}
 {% block content %}
-    <p id="intro">Данные запроса</p>
+    <p id="intro">Добавить пост</p>
     <form method="POST">
         {% csrf_token%}
         {{form.title}}

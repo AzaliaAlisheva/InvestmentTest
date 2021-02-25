@@ -1,0 +1,49 @@
+.card{
+    background: var(--YELLOW);
+    margin: 2%;
+    padding: 2.5%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    color: var(--BROWN);
+}
+
+.card span{
+    font-size: 16px;
+    float: right;
+    font-weight: bold;
+    position: relative;
+    top: 7px;
+}
+
+.card .btn{
+    width: 25%;
+}
+
+.btn {
+    color: var(--WHITE);
+    background: var(--RED);
+    border-width: 0;
+    height: 35px;
+    border-radius: 5px;
+    margin-top: 0;
+}
+
+.btn:hover {
+    color: var(--WHITE);
+}
+
+.searchLine .btn {
+    margin-left: 12px;
+}
+
+.searchLine {
+    display: flex;
+}
+
+.searchLine .form-control{
+    display: inline-block;
+    width: 40%;
+    margin-left: 40px;
+    height: 35px;
+    border-radius: 5px;
+}

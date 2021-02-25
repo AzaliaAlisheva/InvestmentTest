@@ -11,21 +11,23 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'common_main.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'colors.css' %}">
-    <link>{% block links%}{% endblock%}
+    {% block links%}{% endblock%}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 </head>
 <body>
     <header>
-        <div class="topLineWords">
-            <p class="logo">WiseInvestor</p>
+        <p class="logo">WiseInvestor</p>
+        <div class="bttns">
             <nav>
                 <a href="{% url 'posts:blog' %}">Блог</a>
                 <a href="{% url 'polls:test' %}">Тест</a>
                 <!--'sources' Источники-->
             </nav>
-            <p class="name"><a href="{% url 'allauth:logout' %}">{{request.user}}</a></p>
+            <div class="logout">
+                <p class="name"><a href="{% url 'allauth:logout' %}">{{request.user}}</a></p>
+                <div class="iconSignOut"><i class="fas fa-door-open signOut"></i></div>
+            </div>
         </div>
-        <div class="iconSignOut"><i class="fas fa-door-open signOut"></i></div>
     </header>
     <main>
         {% block content %}

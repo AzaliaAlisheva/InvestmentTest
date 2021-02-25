@@ -1,14 +1,13 @@
 {% extends 'layout.html' %}
 {% load static %}
+{% block links%}<link rel="stylesheet" type="text/css" href="{% static 'posts/css/main_posts.css' %}">{% endblock %}
 {% block title%}Создать запрос{% endblock %}
-{% block links%}<link rel="stylesheet" type="text/css" href="{% static 'posts/css/new_req.css'%}"> {% endblock%}
 {% block content %}
-    <p id="intro">Данные запроса для редактирования</p>
+    <h3>Данные запроса для редактирования</h3>
     <form method="POST">
         {% csrf_token%}
         {{form.title}}
-        {{form.description}}<br>
-        <button id="send" class="btn btn-success" type="submit">Подтвердить изменения</button>
+        {{form.content}}
+        <a class="btn" href="">Подтвердить изменения</a>
     </form>
-
 {% endblock %}

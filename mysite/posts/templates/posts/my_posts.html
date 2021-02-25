@@ -1,19 +1,18 @@
 {% extends 'layout.html' %}
 {% load static %}
+{% block links%}<link rel="stylesheet" type="text/css" href="{% static 'posts/css/main_posts.css' %}">{% endblock %}
 {% block title%}Мои посты{% endblock %}
 {% block content%}
-<form class="searchLine">
-      <input class="form-control search" type="text" placeholder="Поиск" aria-label="Поиск">
-<button class="btn" type="submit">Найти</button>
-</form>
-{% for el in posts%}
-<div class="card">
-      <div class="card-body">
-            <h3 class="card-title">{{el.title}} <span>Дата публикации: {{el.created_at}}</span> </h3>
-            <p class="card-text">{{el.content}}</p>
-            <a href="{% url 'posts:request details' el.id %}" class="btn">Смотреть подробности</a>
-            <a href="{% url 'posts:request update' el.id %}" class="btn" id="edit">Редактировать</a>
-      </div>
-</div>
-{%endfor%}
+      <form class="searchLine">
+            <input class="form-control" type="text" placeholder="Поиск" aria-label="Поиск">
+            <a href="" class="btn">Найти</a>
+      </form>
+      {% for el in posts%}
+            <div class="card">
+                  <h3>{{el.title}} <span>Дата публикации: {{el.created_at}}</span> </h3>
+                  <p>{{el.content}}</p>
+                  <a href="{% url 'posts:post details' el.id %}" class="btn">Смотреть подробности</a>
+                  <a href="{% url 'posts:post update' el.id %}" class="btn" id="edit">Редактировать</a>
+            </div>
+      {%endfor%}
 {% endblock %}

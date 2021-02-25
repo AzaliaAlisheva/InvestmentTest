@@ -1,11 +1,9 @@
 {% extends 'layout.html' %}
 {% load static %}
+{% block links%}<link rel="stylesheet" type="text/css" href="{% static 'posts/css/main_posts.css' %}">{% endblock %}
 {% block title%}Личный кабинет{% endblock %}
-{% block links%}<link rel="stylesheet" type="text/css" href="{% static 'posts/css/css_for_txt.css'%}">
-{% endblock%}
-
 {% block content %}
-<h1>This page contains information</h1>
-<p>About personal account</p>
-<p>Страница находится в разработке</p>
+    <h1>This page contains information</h1>
+    <p>About personal account</p>
+    <p>Страница находится в разработке</p>
 {% endblock %}

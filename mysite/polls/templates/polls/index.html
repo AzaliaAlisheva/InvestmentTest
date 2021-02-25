@@ -1,12 +1,15 @@
+{% extends 'layout.html' %}
 {% load static %}
-
-<link rel="stylesheet" type="text/css" href="{% static 'polls/css/main_polls.css' %}">
-{% if latest_question_list %}
-    <ul>
-    {% for question in latest_question_list %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No polls are available.</p>
-{% endif %}
+{% block links%}<link rel="stylesheet" type="text/css" href="{% static 'polls/css/main_polls.css' %}">{%endblock%}
+{% block title%}Тест{% endblock %}
+{%block content %}
+    {% if latest_question_list %}
+        <ul>
+            {% for question in latest_question_list %}
+                <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
+{%endblock%}

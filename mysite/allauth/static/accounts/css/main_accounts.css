@@ -1,5 +1,5 @@
 body{
-	background-color: #DEF3FF !important;
+	background-color: var(--BLUE);
 }
 
 .user_card {
@@ -29,12 +29,12 @@ body{
 
 .login_btn {
 	width: 100%;
-	background: #FFCC48 !important;
+	background: var(--YELLOW);
 }
 
 .login_btn:focus {
-	box-shadow: none !important;
-	outline: 0px !important;
+	box-shadow: none;
+	outline: 0px;
 }
 
 .login_container {
@@ -42,18 +42,17 @@ body{
 }
 
 .input-group-text {
-	background: #FFCC48 !important;
+	background: var(--YELLOW);
 	color: black;
-	border: 0 !important;
-	border-radius: 5px 0 0 5px !important;
+	border: 0;
+	border-radius: 5px 0 0 5px;
 }
 
 .input_user,
 .input_pass:focus {
-	box-shadow: none !important;
-	outline: 0px !important;
+	outline: 0px;
 }
 
 #messages{
-	color: red;
+	color: var(--RED);
 }

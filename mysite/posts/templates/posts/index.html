@@ -3,15 +3,15 @@
 {% block links%}<link rel="stylesheet" type="text/css" href="{% static 'posts/css/main_posts.css' %}">{% endblock %}
 {% block title%}Блог{% endblock %}
 {% block content%}
-<form class="searchLine">
-      <input class="form-control" type="text" placeholder="Поиск" aria-label="Поиск">
-      <a href="" class="btn">Найти</a>
-</form>
-{% for el in posts%}
-<div class="card">
-      <h3 class="card-title">{{el.title}} <span>Дата публикации: {{el.created_at}}</span> </h3>
-      <p class="card-text">{{el.content}}</p>
-      <a href="{% url 'posts:post details' el.id %}" class="btn">Смотреть подробности</a>
-</div>
-{%endfor%}
+      <form class="searchLine">
+            <input class="form-control" type="text" placeholder="Поиск" aria-label="Поиск">
+            <a href="" class="btn">Найти</a>
+      </form>
+      {% for el in posts%}
+            <div class="card">
+                  <h3>{{el.title}} <span>Дата публикации: {{el.created_at}}</span> </h3>
+                  <p>{{el.content}}</p>
+                  <a href="{% url 'posts:post details' el.id %}" class="btn">Смотреть подробности</a>
+            </div>
+      {%endfor%}
 {% endblock %}

@@ -1,7 +1,14 @@
 body{
-    padding: 0;
+    height: 100%;
+    display: table;
+    width: 100%;
+    text-align: center;
     font-family: "Arial", sans-serif;
     font-size: 14px;
+}
+
+html {
+    height: 100%;
 }
 
 header{
@@ -60,8 +67,14 @@ header nav a {
     padding-right: 10px;
 }
 
+main {
+    display: table;
+    width: 100%;
+}
+
 footer {
     height: 100px;
+    display: table-row;
     color: var(--WHITE);
     background-color: var(--BLUE);
     text-align: center;
@@ -74,4 +87,13 @@ footer a {
 
 footer a:hover {
     color: var(--WHITE);
+}
+
+aside {
+    width: 250px;
+    background-color: var(--YELLOW);
+}
+
+.box {
+    display: table-cell;
 }

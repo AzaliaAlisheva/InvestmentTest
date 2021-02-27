@@ -17,13 +17,13 @@ class PostUpdateView(UpdateView):
     form_class = PostsForm
 
 
-@login_required(login_url='login page')
+@login_required(login_url='allauth:login page')
 def index(request):
     posts = Posts.objects.all()
     return render(request, 'posts/index.html', {'posts' : posts})
 
 
-@login_required(login_url='login page')
+@login_required(login_url='allauth:login page')
 def new_post(request):
     error = ''
     if request.method == 'POST':
@@ -41,19 +41,19 @@ def new_post(request):
     return render(request, 'posts/new_post.html', data)
 
 
-@login_required(login_url='login page')
+@login_required(login_url='allauth:login page')
 def successful_new_request(request):
     return render(request, 'posts/new_post_success.html')
 
 
-@login_required(login_url='login page')
+@login_required(login_url='allauth:login page')
 def my_posts(request):
     posts = Posts.objects.all()
     return render(request, 'posts/my_posts.html', {'posts': posts, 'order': [1, 1, 1, 0, 0], 'o': 3,
                                                    'do': [1, 1, 0, 0, 0], 'd': 2})
 
 
-@login_required(login_url='login page')
+@login_required(login_url='allauth:login page')
 def personal_account(request):
     return render(request, 'posts/personal_account.html', {'order': [1, 1, 1, 0, 0], 'o': 3,
                                                            'do': [1, 1, 0, 0, 0], 'd': 2})

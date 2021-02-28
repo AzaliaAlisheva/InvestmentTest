@@ -5,9 +5,11 @@ import sys
 import websocket
 import json
 
+
 def on_message(ws, message):
     mes_json = json.loads(message)
     print(mes_json['data'][0]['p'], mes_json['data'][0]['s'])
+
 
 def on_error(ws, error):
     print(error)

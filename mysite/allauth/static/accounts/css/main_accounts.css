@@ -8,9 +8,6 @@ body{
 	margin-top: 5%;
 	margin-bottom: auto;
 	position: relative;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
 	padding: 10px;
 	padding-top: 3%;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -24,7 +21,7 @@ body{
 }
 
 #form-title{
-	color: black;
+	color: var(--BROWN);
 }
 
 .login_btn {
@@ -43,12 +40,11 @@ body{
 
 .input-group-text {
 	background: var(--YELLOW);
-	color: black;
+	color: var(--BROWN);
 	border: 0;
 	border-radius: 5px 0 0 5px;
 }
 
-.input_user,
 .input_pass:focus {
 	outline: 0px;
 }

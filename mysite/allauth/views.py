@@ -10,10 +10,10 @@ def login_page(request):
         return redirect('posts:blog')
     else:
         if request.method == 'POST':
-            email = request.POST.get('email')
+            username = request.POST.get('username')
             password = request.POST.get('password')
 
-            user = authenticate(request, username=email, password=password)
+            user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
                 return redirect('posts:blog')

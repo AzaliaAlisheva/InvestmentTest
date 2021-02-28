@@ -17,23 +17,19 @@
 <body>
     <header>
         <p class="logo">WiseInvestor</p>
-        <div class="bttns">
-            <nav>
-                <a href="{% url 'posts:blog' %}">Блог</a>
-                <a href="{% url 'polls:test' %}">Тест</a>
-                <!--'sources' Источники-->
-            </nav>
-            <div class="logout">
-                <p class="name"><a href="{% url 'allauth:logout' %}">{{request.user}}</a></p>
-                <div class="iconSignOut"><i class="fas fa-door-open signOut"></i></div>
-            </div>
+        <nav>
+            <a href="{% url 'posts:blog' %}">Блог</a>
+            <a href="{% url 'polls:test' %}">Тест</a>
+            <!--'sources' Источники-->
+        </nav>
+        <div class="logout">
+            <a href="{% url 'allauth:logout' %}">{{request.user}}</a>
+            <div class="iconSignOut"><i class="fas fa-door-open signOut"></i></div>
         </div>
     </header>
     <main>
-        <div class="box">
         {% block content %}
         {% endblock %}
-        </div>
         <aside class="box">Сайдбар</aside>
     </main>
     <footer>

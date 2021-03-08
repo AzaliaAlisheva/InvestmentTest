@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    #'channels',
     'allauth',
     'posts',
     'mysite',
@@ -73,7 +74,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
-
+#ASGI_APPLICATION = 'mysite.routing.application'
+CELERY_BROKER_URL = 'redis://localhost:6379'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases

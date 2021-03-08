@@ -14,6 +14,41 @@
     {% block links%}{% endblock%}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 </head>
+<script>
+    let ws = new WebSocket("wss://ws.finnhub.io?token=c0t96iv48v6r4maen2g0");
+
+    ws.onopen = function() {
+      alert("[open] Соединение установлено");
+      ws.send('{"type":"subscribe","symbol":"AAPL"}')
+      ws.send('{"type":"subscribe","symbol":"AMZN"}')
+      ws.send('{"type":"subscribe","symbol":"BINANCE:BTCUSDT"}')
+      ws.send('{"type":"subscribe","symbol":"IC MARKETS:1"}')
+    };
+
+
+    ws.onmessage = function(event) {
+        var recData=JSON.parse(event.data);
+        tableBodyData[recDate['s']]['price'] = recData['p'];
+        /*tableBodyData[recDate['s']]['chng'] = recData['p']-{{AllStocks[recDate['s']].pc}};
+        tableBodyData[recDate['s']]['chng%'] = (recData['p']-{{AllStocks[recDate['s']].pc}})*100/{stock.pc}};*/
+    };
+
+
+    ws.onclose = function(event) {
+      if (event.wasClean) {
+        alert(`[close] Соединение закрыто чисто, код=${event.code} причина=${event.reason}`);
+      } else {
+        // например, сервер убил процесс или сеть недоступна
+        // обычно в этом случае event.code 1006
+        alert('[close] Соединение прервано');
+      }
+    };
+
+
+    ws.onerror = function(error) {
+      alert(`[error] ${error.message}`);
+    };
+</script>
 <body>
     <header>
         <p class="logo">WiseInvestor</p>
@@ -32,10 +67,48 @@
             {% block content %}
             {% endblock %}
         </div>
-        <aside class="box">Сайдбар</aside>
+        <aside class="box">
+            <table id="stocks">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Chng</th>
+                    </tr>
+                </thead>
+            </table>
+        </aside>
     </main>
     <footer>
         <p>Illustration by <a href="undefined">Natasha Remarchuk</a> from <a href="https://icons8.com/">Icons8</a></p>
     </footer>
 </body>
+<script>
+    let tableHeader = {{tableHeader | safe}};
+    let tableBodyData = {{list | safe}};
+    function createHeader(table, headerValues) {
+        let tHead = table.createTHead();
+        let tRow = tHead.insertRow();
+        for (val in headerValues) {
+            th = document.createElement('th');
+            let text = document.createTextNode(headerValues[val]);
+            th.appendChild(text);
+            tRow.appendChild(th);
+        }
+    }
+
+    function createTableBody(table, body, header) {
+        for (element in body) {
+            let row = table.insertRow();
+            for (key in header) {
+                let cell = row.insertCell();
+                let text = document.createTextNode({{AllStocks[].key)
+                cell.appendChild(text);
+            }
+        }
+
+    }
+    var tableContent = document.getElementById('stocks');
+    createHeader(tableContent, tableHeader);
+    createTableBody(tableContent, tableBodyData, tableHeader);
+</script>
 </html>

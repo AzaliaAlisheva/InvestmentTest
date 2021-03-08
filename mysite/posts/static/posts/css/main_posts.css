@@ -28,6 +28,10 @@
     margin-top: 0;
 }
 
+.btn:focus {
+    outline-color: var(--WHITE);
+}
+
 .btn:hover {
     color: var(--WHITE);
 }

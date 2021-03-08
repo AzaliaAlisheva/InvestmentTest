@@ -5,13 +5,13 @@
 {% block content%}
       <form class="searchLine">
             <input class="form-control" type="text" placeholder="Поиск" aria-label="Поиск">
-            <a href="" class="btn">Найти</a>
+            <a href="" class="btn" tabindex="1">Найти</a>
       </form>
       {% for el in posts%}
             <div class="card">
                   <h3>{{el.title}} <span>Дата публикации: {{el.created_at}}</span> </h3>
                   <p>{{el.content}}</p>
-                  <a href="{% url 'posts:post details' el.id %}" class="btn">Смотреть подробности</a>
+                  <a href="{% url 'posts:post details' el.id %}" tabindex="1" class="btn">Смотреть подробности</a>
             </div>
       {%endfor%}
 {% endblock %}

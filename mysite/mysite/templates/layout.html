@@ -16,21 +16,20 @@
 </head>
 <script>
     let ws = new WebSocket("wss://ws.finnhub.io?token=c0t96iv48v6r4maen2g0");
+    let list = {{list | safe}};
 
     ws.onopen = function() {
       alert("[open] Соединение установлено");
       ws.send('{"type":"subscribe","symbol":"AAPL"}')
       ws.send('{"type":"subscribe","symbol":"AMZN"}')
-      ws.send('{"type":"subscribe","symbol":"BINANCE:BTCUSDT"}')
-      ws.send('{"type":"subscribe","symbol":"IC MARKETS:1"}')
+      ws.send('{"type":"subscribe","symbol":"GME"}')
+      ws.send('{"type":"subscribe","symbol":"TSLA"}')
     };
 
 
     ws.onmessage = function(event) {
         var recData=JSON.parse(event.data);
         tableBodyData[recDate['s']]['price'] = recData['p'];
-        /*tableBodyData[recDate['s']]['chng'] = recData['p']-{{AllStocks[recDate['s']].pc}};
-        tableBodyData[recDate['s']]['chng%'] = (recData['p']-{{AllStocks[recDate['s']].pc}})*100/{stock.pc}};*/
     };
 
 
@@ -69,12 +68,6 @@
         </div>
         <aside class="box">
             <table id="stocks">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Chng</th>
-                    </tr>
-                </thead>
             </table>
         </aside>
     </main>
@@ -84,7 +77,7 @@
 </body>
 <script>
     let tableHeader = {{tableHeader | safe}};
-    let tableBodyData = {{list | safe}};
+    let tableBodyData = {{data | safe}};
     function createHeader(table, headerValues) {
         let tHead = table.createTHead();
         let tRow = tHead.insertRow();
@@ -96,12 +89,12 @@
         }
     }
 
-    function createTableBody(table, body, header) {
-        for (element in body) {
+    function createTableBody(table, data) {
+        for (element in data) {
             let row = table.insertRow();
-            for (key in header) {
+            for (key in data[element]) {
                 let cell = row.insertCell();
-                let text = document.createTextNode({{AllStocks[].key)
+                let text = document.createTextNode(data[element][key])
                 cell.appendChild(text);
             }
         }
@@ -109,6 +102,6 @@
     }
     var tableContent = document.getElementById('stocks');
     createHeader(tableContent, tableHeader);
-    createTableBody(tableContent, tableBodyData, tableHeader);
+    createTableBody(tableContent, tableBodyData);
 </script>
 </html>

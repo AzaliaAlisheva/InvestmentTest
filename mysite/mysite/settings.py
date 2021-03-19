@@ -43,7 +43,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_celery_beat',
+    'django_celery_results',
 ]
+
+from .my_celery.conf import *
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -75,7 +79,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 #ASGI_APPLICATION = 'mysite.routing.application'
-CELERY_BROKER_URL = 'redis://localhost:6379'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases

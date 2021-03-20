@@ -15,38 +15,28 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 </head>
 <script>
-    let ws = new WebSocket("wss://ws.finnhub.io?token=c0t96iv48v6r4maen2g0");
-    let list = {{list | safe}};
+    const ws = new WebSocket("wss://ws.finnhub.io?token=c0t96iv48v6r4maen2g0");
 
-    ws.onopen = function() {
-      alert("[open] Соединение установлено");
-      ws.send('{"type":"subscribe","symbol":"AAPL"}')
-      ws.send('{"type":"subscribe","symbol":"AMZN"}')
-      ws.send('{"type":"subscribe","symbol":"GME"}')
-      ws.send('{"type":"subscribe","symbol":"TSLA"}')
-    };
-
-
-    ws.onmessage = function(event) {
-        var recData=JSON.parse(event.data);
-        tableBodyData[recDate['s']]['price'] = recData['p'];
-    };
-
-
-    ws.onclose = function(event) {
-      if (event.wasClean) {
-        alert(`[close] Соединение закрыто чисто, код=${event.code} причина=${event.reason}`);
-      } else {
-        // например, сервер убил процесс или сеть недоступна
-        // обычно в этом случае event.code 1006
-        alert('[close] Соединение прервано');
+    ws.addEventListener('open', function (event) {
+      for (let stock of Object.keys(tableBodyData)) {
+        ws.send(JSON.stringify({'type':'subscribe', 'symbol': tableBodyData[stock]['name']}))
       }
-    };
+    });
 
 
-    ws.onerror = function(error) {
-      alert(`[error] ${error.message}`);
-    };
+    ws.addEventListener('message', function (event) {
+        var recData=JSON.parse(event.data);
+        tableBodyData[recData['data'][0]['s']]['price'] = recData['data'][0]['p']; //обработать ошибки
+        tableContent = document.getElementById('stocks');
+        tableContent.innerHTML = "";
+        createHeader(tableContent, tableHeader);
+        createTableBody(tableContent, tableBodyData);
+    });
+
+
+    var unsubscribe = function(symbol) {
+    socket.send(JSON.stringify({'type':'unsubscribe','symbol': symbol}))
+}
 </script>
 <body>
     <header>
@@ -94,7 +84,7 @@
             let row = table.insertRow();
             for (key in data[element]) {
                 let cell = row.insertCell();
-                let text = document.createTextNode(data[element][key])
+                let text = document.createTextNode(data[element][key]);
                 cell.appendChild(text);
             }
         }

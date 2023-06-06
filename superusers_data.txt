@@ -1,0 +1,5 @@
+admin adminpassword
+azali password
+
+ordinary user:
+Person1 Person1password
